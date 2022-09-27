@@ -69,7 +69,6 @@ public class Cartelas {
                         //para não apontar para a mesma posição
                         if(i != i1 || k !=k1){
                             if(arrCartela[i][k] == arrCartela[i1][k1]){
-                                System.out.println(arrCartela[i][k]);
                                 return true;
                             }
                         }
