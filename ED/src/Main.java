@@ -1,6 +1,10 @@
 public class Main {
     public static void main(String[] args) {
-        Cartelas c1 = new Cartelas();
-        c1.mostrarCartelas(c1.gerarBingo(3));
+        Cartela c1 = new Cartela();
+
+        Cartela.mostrarCartela(c1.gerarCartela(5,5));
+
+        Bingo hrDoBingo = new Bingo();
+        Cartela.mostrarCartelas(hrDoBingo.gerarBingo(5, 5, 5));
     }
 }
