@@ -6,16 +6,18 @@ public class Cartelas {
     //gera 1 cartela
     private int[][] gerarCartela() {
         final int[][] casas = new int[5][5];
+        int cartelasProntas = 0;
 
-        for (int i = 0; i < 5; i++) {
+        for (int i = cartelasProntas; i < 5; i++) {
             for (int k = 0; k < 5; k++) {
                 casas[i][k] = rnd.nextInt(59) + 1;
             }
 
             if(i == 4){
                 if(validarTabela(casas)){
-                    i = 0;
+                    i = cartelasProntas;
                 }
+                cartelasProntas++;
             }
         }
 
