@@ -24,7 +24,6 @@ public class MetodosRecursivos {
                 return somarVetorDeInteiros(vetor, tamanho - 1);
             }
         }
-
     }
 
 }

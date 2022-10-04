@@ -1,6 +1,12 @@
 
 //Questao 4.1
 public class Bingo {
+
+    //Bingos prontos armazenados
+    public static Object[] conjuntoBingo = new Object[10];
+    //index do array de bingos
+    private static int pos = 0;
+
     public Object[] gerarBingo(int numDeCartelas, int m, int n) {
         Cartela temp = new Cartela();
 
@@ -14,6 +20,30 @@ public class Bingo {
     }
 
     //Questao 5
-    //Faça um programa para armazenar um conjunto de cartelas de bingo (gerada na
-    //questão anterior).
+    //Armazena bingos criados em um vetor de objetos
+    static void armazenarBingo(Object[] bingo) {
+        if (bingo.length >= conjuntoBingo.length - pos) {
+            Object[] novoConjunto = new Object[conjuntoBingo.length + bingo.length + 30];
+            for (int i = 0; i < conjuntoBingo.length; i++) {
+                novoConjunto[i] = conjuntoBingo[i];
+                if (conjuntoBingo[i] == null) {
+                    break;
+                }
+            }
+
+            for (int i = 0; i < bingo.length; pos++, i++) {
+                novoConjunto[pos] = bingo[i];
+            }
+
+            conjuntoBingo = novoConjunto;
+        } else {
+            for (int i = 0; i < bingo.length; i++, pos++) {
+                conjuntoBingo[pos] = bingo[i];
+            }
+        }
+    }
+
+    public static Object[] getConjuntoBingo() {
+        return conjuntoBingo;
+    }
 }

@@ -1,8 +1,21 @@
+import java.util.Calendar;
+import java.util.Date;
 import java.util.Random;
 
 //Questao 4
 public class Cartela {
     private final Random rnd = new Random();
+
+    //Número identificador da cartela
+    private static int id_cartela = 0;
+    private int identificador;
+    private Date dataDeGeração = Calendar.getInstance().getTime();
+
+    public Cartela() {
+        identificador = id_cartela;
+        id_cartela++;
+    }
+
 
     //gera 1 cartela
     public int[][] gerarCartela(int m, int n) {
@@ -24,7 +37,6 @@ public class Cartela {
 
         return casas;
     }
-
 
     //exibe uma única cartelas a partir de um array de inteiros
     public static void mostrarCartela(int[][] cartela) {
@@ -49,6 +61,12 @@ public class Cartela {
         for (Object n : arr) {
             //pegar cartelas
             num = (int[][]) n;
+
+            //Tabelas armazenadas sempre apresentarão valores nulos
+            if (num == null) {
+                break;
+            }
+
             //imprimir cartela
             for (int j = 0; j < num.length; j++) {
                 for (int k = 0; k < num[0].length; k++) {
@@ -90,4 +108,16 @@ public class Cartela {
         return false;
     }
 
+
+    public static int getId_cartela() {
+        return id_cartela;
+    }
+
+    public int getIdentificador() {
+        return identificador;
+    }
+
+    public Date getDataDeGeração() {
+        return dataDeGeração;
+    }
 }
