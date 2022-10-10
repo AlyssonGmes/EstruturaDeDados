@@ -1,3 +1,5 @@
+package br.com.ed.bingo;
+
 public interface ICartelaJogo {
     static ICartelaJogo gerarCartelaJogo(int N, int M){
         return null;
@@ -8,10 +10,9 @@ public interface ICartelaJogo {
      * @param N número que deve ser encontrado na matriz NxM
      */
 
-
     void marcarNumeroSorteado(int N);
     /**
-     * Identifica se todos os números em uma determinada linha ou coluna foram
+     * Identifica se todos os números em uma  determinada linha ou coluna foram
      sorteados.
      * @param verificarPorLinha caso verdadeiro (@true) o programa deverá verificar
     por

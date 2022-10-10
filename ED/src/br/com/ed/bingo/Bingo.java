@@ -1,3 +1,4 @@
+package br.com.ed.bingo;
 
 //Questao 4.1
 public class Bingo {

@@ -1,3 +1,5 @@
+package br.com.ed.bingo;
+
 public class MetodosIterativos {
 
     //Questao 1

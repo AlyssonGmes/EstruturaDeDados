@@ -1,3 +1,5 @@
+package br.com.ed.bingo;
+
 public class MetodosRecursivos {
     //Questao 3
     //Em ambas, a passagem de 'tamanho' como parâmetro será igual ao length do vetor -1
