@@ -5,9 +5,6 @@ public interface ICartelaJogo {
         return null;
     }
 
-
-
-
     /**
      * Marca o número como sorteado caso ele exista na matriz NxM
      * @param N número que deve ser encontrado na matriz NxM

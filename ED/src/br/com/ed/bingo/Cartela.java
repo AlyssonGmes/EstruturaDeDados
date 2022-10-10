@@ -18,6 +18,7 @@ public class Cartela implements ICartelaJogo {
     String dataDeGeracao = new SimpleDateFormat("dd/MM/yyyy").format(Calendar.getInstance().getTime());
 
 
+
     //Construtor de Cartela, incrementando identificador a cada cartela criada
     public Cartela() {
         identificador = id_cartela;
@@ -44,6 +45,8 @@ public class Cartela implements ICartelaJogo {
             aux = 0;
             for (int i = 0; i < arr.length; i++) {
                 for (int k = 0; k < arr[0].length - 1; k++) {
+
+                    //Comparação padrão início-fim da linha
                     if (arr[i][k] == arr[i][k + 1]) {
                         if (arr[i][k] > 0 && arr[i][k] < 60) {
                             arr[i][k]++;
@@ -54,10 +57,10 @@ public class Cartela implements ICartelaJogo {
                         }
                     }
 
-                    //problema
+                    //compara o último da linha com o primeiro da próxima linha
                     if (k == arr[0].length - 2 && i < arr.length - 1) {
-                      if(arr[i + 1][0] == arr[i][k + 1]){
-                          arr[i + 1][0]++;
+                        if (arr[i + 1][0] == arr[i][k + 1]) {
+                            arr[i + 1][0]++;
                         }
                     }
                 }
@@ -169,10 +172,33 @@ public class Cartela implements ICartelaJogo {
     }
 
     public void marcarNumeroSorteado(int N) {
+        int[][] arr = new int[0][0];
 
+        for (int i = 0; i < arr.length; i++) {
+            for (int k = 0; k < arr[0].length; k++) {
+                if (arr[i][k] == N) {
+                    arr[i][k] = 0;
+                }
+            }
+        }
     }
 
     public boolean ehCartelaVencedora(boolean verificarPorLinha) {
+        int[][] arr = new int[0][0];
+
+        int contador = 0;
+        for (int i = 0; i < arr.length; i++) {
+            for (int k = 0; k < arr[0].length; k++) {
+                if (arr[i][k] == 0) {
+                    contador++;
+                }
+            }
+        }
+        if (contador == arr.length * arr[0].length) {
+            return true;
+        }
+
         return false;
     }
+
 }

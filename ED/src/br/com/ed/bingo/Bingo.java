@@ -46,7 +46,14 @@ public class Bingo {
         }
     }
 
+    Premio premioDoBingo;
+
     public static Object[] getConjuntoBingo() {
         return conjuntoBingo;
+    }
+
+    //Gerenciar prêmio do bingo
+    public void gerenciarPremio(double valor, String nome, String descricao, int numero, Object[] cartelasGanhadoras, int[] numerosSorteados) {
+        premioDoBingo.gerenciarPremio(valor, nome, descricao, numero, cartelasGanhadoras, numerosSorteados);
     }
 }
