@@ -5,12 +5,16 @@ public interface ICartelaJogo {
         return null;
     }
 
+
+
+
     /**
      * Marca o número como sorteado caso ele exista na matriz NxM
      * @param N número que deve ser encontrado na matriz NxM
      */
 
     void marcarNumeroSorteado(int N);
+
     /**
      * Identifica se todos os números em uma  determinada linha ou coluna foram
      sorteados.

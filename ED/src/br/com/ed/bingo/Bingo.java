@@ -5,9 +5,11 @@ public class Bingo {
 
     //Bingos prontos armazenados
     public static Object[] conjuntoBingo = new Object[10];
+
     //index do array de bingos
     private static int pos = 0;
 
+    //Gera n cartelas
     public Object[] gerarBingo(int numDeCartelas, int m, int n) {
         Cartela temp = new Cartela();
 
@@ -21,7 +23,7 @@ public class Bingo {
     }
 
     //Questao 5
-    //Armazena bingos criados em um vetor de objetos
+    //Armazena bingos criados no vetor de objetos "conjuntoBingo"
     static void armazenarBingo(Object[] bingo) {
         if (bingo.length >= conjuntoBingo.length - pos) {
             Object[] novoConjunto = new Object[conjuntoBingo.length + bingo.length + 30];

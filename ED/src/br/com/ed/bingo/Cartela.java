@@ -1,8 +1,6 @@
 package br.com.ed.bingo;
 
-import java.lang.reflect.Array;
 import java.text.SimpleDateFormat;
-import java.util.Arrays;
 import java.util.Calendar;
 import java.util.Random;
 
@@ -10,18 +8,23 @@ import java.util.Random;
 public class Cartela implements ICartelaJogo {
     private final Random rnd = new Random();
 
-    //Número identificador da cartela
+    //Referência para criar ids
     private static int id_cartela = 0;
+
+    //Identificador único de cada cartela
     private final int identificador;
 
+    //Data de criação: String
     String dataDeGeracao = new SimpleDateFormat("dd/MM/yyyy").format(Calendar.getInstance().getTime());
 
+
+    //Construtor de Cartela, incrementando identificador a cada cartela criada
     public Cartela() {
         identificador = id_cartela;
         id_cartela++;
     }
 
-    //gera 1 cartela
+    //gera 1 cartela de matriz m x n
     public int[][] gerarCartela(int m, int n) {
         final int[][] casas = new int[m][n];
 
@@ -33,10 +36,11 @@ public class Cartela implements ICartelaJogo {
         return removerDuplicados(casas);
     }
 
+    //Utilizar o método ordenarCartela e incrementa os números duplicados na cartela
     public static int[][] removerDuplicados(int[][] arr) {
         int aux;
         do {
-            arr = ordernar(arr);
+            arr = ordernarCartela(arr);
             aux = 0;
             for (int i = 0; i < arr.length; i++) {
                 for (int k = 0; k < arr[0].length - 1; k++) {
@@ -50,9 +54,10 @@ public class Cartela implements ICartelaJogo {
                         }
                     }
 
-                    if (k == arr[0].length - 1 && i != arr.length - 1) {
-                        if (arr[i][k] == arr[i + 1][k]) {
-                            arr[i + 1][k]++;
+                    //problema
+                    if (k == arr[0].length - 2 && i < arr.length - 1) {
+                      if(arr[i + 1][0] == arr[i][k + 1]){
+                          arr[i + 1][0]++;
                         }
                     }
                 }
@@ -61,7 +66,8 @@ public class Cartela implements ICartelaJogo {
         return arr;
     }
 
-    public static int[][] ordernar(int[][] arr) {
+    //Ordena uma cartela
+    public static int[][] ordernarCartela(int[][] arr) {
         for (int i = 0, temp; i < arr.length; i++) {
             for (int k = 0; k < arr[0].length; k++) {
                 for (int m = 0; m < arr.length; m++) {
@@ -157,7 +163,9 @@ public class Cartela implements ICartelaJogo {
 
     //Implementações da interface ICarteloJogo
     static ICartelaJogo gerarCartelaJogo(int N, int M) {
-        return null;
+        Cartela cartela = new Cartela();
+        cartela.gerarCartela(N, M);
+        return cartela;
     }
 
     public void marcarNumeroSorteado(int N) {
