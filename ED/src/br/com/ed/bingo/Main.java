@@ -7,10 +7,8 @@ public class Main {
         Bingo b1 = new Bingo();
         Bingo.armazenarBingo(b1.gerarBingo(3, 7,7));
 
-     //Cartela.mostrarCartelas(Bingo.getConjuntoBingo());
+        Cartela.mostrarCartelas(Bingo.getConjuntoBingo());
 
-        Cartela c1 = new Cartela();
-        System.out.println(        c1.ehCartelaVencedora(true));
     }
 
     public static double[] criarVetor(int tamanho){
