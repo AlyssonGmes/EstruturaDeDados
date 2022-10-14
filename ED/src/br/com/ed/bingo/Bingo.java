@@ -9,14 +9,12 @@ public class Bingo {
     //index do array de bingos
     private static int pos = 0;
 
-    //Gera n cartelas
-    public Object[] gerarBingo(int numDeCartelas, int m, int n) {
-        Cartela temp = new Cartela();
-
+    //Gera n instâncias de ICartelaJogo contendo um atributo com as cartelas
+    public Object[] gerarBingo(int numDeCartelas, int N, int M) {
         Object[] arrCartelas = new Object[numDeCartelas];
 
         for (int i = 0; i < numDeCartelas; i++) {
-            arrCartelas[i] = temp.gerarCartela(m, n);
+            arrCartelas[i] = Cartela.gerarCartelaJogo(N, M);
 
         }
         return arrCartelas;
@@ -46,14 +44,8 @@ public class Bingo {
         }
     }
 
-    Premio premioDoBingo;
-
     public static Object[] getConjuntoBingo() {
         return conjuntoBingo;
     }
 
-    //Gerenciar prêmio do bingo
-    public void gerenciarPremio(double valor, String nome, String descricao, int numero, Object[] cartelasGanhadoras, int[] numerosSorteados) {
-        premioDoBingo.gerenciarPremio(valor, nome, descricao, numero, cartelasGanhadoras, numerosSorteados);
-    }
 }

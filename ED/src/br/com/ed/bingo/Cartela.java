@@ -1,12 +1,15 @@
 package br.com.ed.bingo;
 
+import java.text.DecimalFormat;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Random;
 
 //Questao 4
 public class Cartela implements ICartelaJogo {
-    private final Random rnd = new Random();
+    private static final Random rnd = new Random();
+
+    int[][] cartela;
 
     //Referência para criar ids
     private static int id_cartela = 0;
@@ -17,7 +20,8 @@ public class Cartela implements ICartelaJogo {
     //Data de criação: String
     String dataDeGeracao = new SimpleDateFormat("dd/MM/yyyy").format(Calendar.getInstance().getTime());
 
-
+    //formata a saída das dezenas
+    final static DecimalFormat df = new DecimalFormat("00.###");
 
     //Construtor de Cartela, incrementando identificador a cada cartela criada
     public Cartela() {
@@ -25,7 +29,7 @@ public class Cartela implements ICartelaJogo {
         id_cartela++;
     }
 
-    //gera 1 cartela de matriz m x n
+/*    //gera 1 cartela de matriz m x n
     public int[][] gerarCartela(int m, int n) {
         final int[][] casas = new int[m][n];
 
@@ -35,7 +39,7 @@ public class Cartela implements ICartelaJogo {
             }
         }
         return removerDuplicados(casas);
-    }
+    }*/
 
     //Utilizar o método ordenarCartela e incrementa os números duplicados na cartela
     public static int[][] removerDuplicados(int[][] arr) {
@@ -88,46 +92,38 @@ public class Cartela implements ICartelaJogo {
     }
 
     //exibe uma única cartelas a partir de um array de inteiros
-    public static void mostrarCartela(int[][] cartela) {
-        for (int j = 0; j < cartela.length; j++) {
-            for (int k = 0; k < cartela[0].length; k++) {
-                if (cartela[j][k] < 10) {
-                    System.out.print("0" + cartela[j][k] + " ");
-                } else {
-                    System.out.print(cartela[j][k] + " ");
-                }
+    public void mostrarCartela() {
+
+        for (int[] arr : this.cartela) {
+            for (int pos : arr) {
+                System.out.print(df.format(pos) + " ");
             }
             System.out.println();
         }
+
         System.out.println();
     }
 
     //exibe todas as cartelas a partir de um array de objetos
     public static void mostrarCartelas(Object[] arr) {
-        int[][] num;
+        int[][] temp;
 
-        for (Object n : arr) {
-            //pegar cartelas
-            num = (int[][]) n;
-
-            //Tabelas armazenadas sempre apresentarão valores nulos
-            if (num == null) {
+        for (Object cartelas : arr) {
+            temp = (int[][]) cartelas;
+            if (temp == null) {
                 break;
             }
 
-            //imprimir cartela
-            for (int j = 0; j < num.length; j++) {
-                for (int k = 0; k < num[0].length; k++) {
-                    if (num[j][k] < 10) {
-                        System.out.print("0" + num[j][k] + " ");
-                    } else {
-                        System.out.print(num[j][k] + " ");
-                    }
+            for (int[] cartela : temp) {
+                for (int pos : cartela) {
+                    System.out.print(df.format(pos) + " ");
                 }
                 System.out.println();
             }
-            System.out.println("\n");
+
+            System.out.println();
         }
+
     }
 
     //retorna true se a cartela possuir números iguais
@@ -159,46 +155,43 @@ public class Cartela implements ICartelaJogo {
         return identificador;
     }
 
+    public int[][] getCartela() {
+        return cartela;
+    }
+
+    public void setCartela(int[][] cartela) {
+        this.cartela = cartela;
+    }
+
     public String
     getDataDeGeracao() {
         return dataDeGeracao;
     }
 
-    //Implementações da interface ICarteloJogo
+    //Gera um objeto do tipo ICartelaJogo, com 1 cartela nesta instância
     static ICartelaJogo gerarCartelaJogo(int N, int M) {
-        Cartela cartela = new Cartela();
-        cartela.gerarCartela(N, M);
-        return cartela;
+        final int[][] casas = new int[N][M];
+
+        for (int i = 0; i < N; i++) {
+            for (int k = 0; k < M; k++) {
+                casas[i][k] = rnd.nextInt(59) + 1;
+            }
+        }
+
+        Cartela novaCartela = new Cartela();
+        novaCartela.cartela = removerDuplicados(casas);
+
+        return novaCartela;
     }
 
     public void marcarNumeroSorteado(int N) {
-        int[][] arr = new int[0][0];
 
-        for (int i = 0; i < arr.length; i++) {
-            for (int k = 0; k < arr[0].length; k++) {
-                if (arr[i][k] == N) {
-                    arr[i][k] = 0;
-                }
-            }
-        }
     }
 
     public boolean ehCartelaVencedora(boolean verificarPorLinha) {
-        int[][] arr = new int[0][0];
-
-        int contador = 0;
-        for (int i = 0; i < arr.length; i++) {
-            for (int k = 0; k < arr[0].length; k++) {
-                if (arr[i][k] == 0) {
-                    contador++;
-                }
-            }
-        }
-        if (contador == arr.length * arr[0].length) {
-            return true;
-        }
 
         return false;
     }
 
+    //comentário
 }
