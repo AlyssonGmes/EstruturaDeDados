@@ -4,6 +4,7 @@ import java.util.Arrays;
 import java.util.HashSet;
 
 public class MetodosIterativos {
+    static int velocidade = 450;
     public static int[] selectionSort(int[] vetor) {
         int menor = 0, aux = 0;
         for (int i = 0; i < vetor.length; i++) {
@@ -31,8 +32,7 @@ public class MetodosIterativos {
                 aux = vetor[i];
                 vetor[i] = vetor[i + 1];
                 vetor[i + 1] = aux;
-                if (i > 0)
-                    i--;
+                if (i > 0) i--;
             } else {
                 i++;
             }
@@ -44,14 +44,14 @@ public class MetodosIterativos {
     public static int[] bubbleSort(int[] vetor) {
         int tamanho = vetor.length, aux;
         for (int i = 0; i < tamanho; i++) {
-            for (int j = 0; j < tamanho - 1; j++) {
+            for (int j = 0; j < tamanho-1; j++) {
                 organizarPrint(vetor, j);
                 if (vetor[j] > vetor[j + 1]) {
                     aux = vetor[j];
                     vetor[j] = vetor[j + 1];
                     vetor[j + 1] = aux;
-                    aux = vetor[i];
                 }
+
             }
         }
         return vetor;
@@ -81,7 +81,11 @@ public class MetodosIterativos {
         for (int i = 0; i < vetor.length; i++) {
             for (int j = 0; j < vetor[i] + 1; j++) {
                 if (i == menor) {
-                    matriz[i][j] = "├┤";
+                    if (vetor[menor] > 9) {
+                        matriz[i][j] = "" + vetor[menor];
+                    } else {
+                        matriz[i][j] = " " + vetor[menor];
+                    }
                 } else {
                     matriz[i][j] = "██";
                 }
@@ -89,6 +93,7 @@ public class MetodosIterativos {
         }
 
         mostrarMatriz(matriz);
+
     }
 
     public static void mostrarMatriz(String[][] matriz) {
@@ -100,12 +105,14 @@ public class MetodosIterativos {
             aux += "\n";
         }
         try {
-            Thread.sleep(500);
+            Thread.sleep(velocidade);
         } catch (InterruptedException e) {
             System.out.println(e.fillInStackTrace());
         }
         System.out.println(aux);
     }
 
-
+    public static void setVelocidadePrint(int velocidade) {
+        MetodosIterativos.velocidade = velocidade;
+    }
 }
