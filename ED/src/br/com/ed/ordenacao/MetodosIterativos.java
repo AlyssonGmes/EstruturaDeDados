@@ -5,6 +5,7 @@ import java.util.HashSet;
 
 public class MetodosIterativos {
     static int velocidade = 450;
+
     public static int[] selectionSort(int[] vetor) {
         int menor = 0, aux = 0;
         for (int i = 0; i < vetor.length; i++) {
@@ -23,6 +24,34 @@ public class MetodosIterativos {
 
         }
         return vetor;
+    }
+
+    public int[] mergeSort(int[] vetor, int[] vetorL, int[] vetorR) {
+
+        if (vetorL == vetorR) {
+            return vetor;
+        } else {
+            for (int i = 0; i < vetor.length; i++) {
+                if (i < vetor.length / 2) {
+                    vetorL[i] = vetor[i];
+                } else {
+                    vetorR[i / 2] = vetor[i];
+                }
+            }
+            mergeSort(vetor, vetorR, vetorL);
+        }
+
+        return vetor;
+    }
+
+    public static int[] merge(int[] vetorL, int[] vetorR) {
+        int[] vetorMerged = new int[vetorL.length + vetorR.length];
+        for (int lSize = 0, rSize = 0; lSize + rSize < vetorMerged.length; ) {
+
+            
+        }
+
+        return vetorMerged;
     }
 
     public static int[] insertionSort(int[] vetor) {
@@ -44,7 +73,7 @@ public class MetodosIterativos {
     public static int[] bubbleSort(int[] vetor) {
         int tamanho = vetor.length, aux;
         for (int i = 0; i < tamanho; i++) {
-            for (int j = 0; j < tamanho-1; j++) {
+            for (int j = 0; j < tamanho - 1 - i; j++) {
                 organizarPrint(vetor, j);
                 if (vetor[j] > vetor[j + 1]) {
                     aux = vetor[j];
@@ -107,7 +136,7 @@ public class MetodosIterativos {
         try {
             Thread.sleep(velocidade);
         } catch (InterruptedException e) {
-            System.out.println(e.fillInStackTrace());
+            System.out.println(e.getMessage());
         }
         System.out.println(aux);
     }

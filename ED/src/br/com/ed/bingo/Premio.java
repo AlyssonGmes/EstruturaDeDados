@@ -1,6 +1,7 @@
 package br.com.ed.bingo;
 
-public class Premio {
+public class
+Premio {
     static Premio premio = new Premio();
 
     private Premio() {

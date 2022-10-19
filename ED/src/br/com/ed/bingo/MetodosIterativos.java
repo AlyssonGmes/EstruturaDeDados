@@ -1,7 +1,6 @@
 package br.com.ed.bingo;
 
 public class MetodosIterativos {
-
     //Questao 1
     public int contarApenasInteiros(double[] vetor) {
         int soma = 0;
