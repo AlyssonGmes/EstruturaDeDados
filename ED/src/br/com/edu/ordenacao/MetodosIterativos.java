@@ -1,4 +1,4 @@
-package br.com.ed.ordenacao;
+package br.com.edu.ordenacao;
 
 import java.util.Arrays;
 import java.util.HashSet;

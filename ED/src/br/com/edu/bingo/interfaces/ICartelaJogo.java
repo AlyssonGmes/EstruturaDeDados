@@ -1,4 +1,4 @@
-package br.com.ed.bingo;
+package br.com.edu.bingo.interfaces;
 
 public interface ICartelaJogo {
     static ICartelaJogo gerarCartelaJogo(int N, int M){

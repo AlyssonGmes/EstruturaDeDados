@@ -1,4 +1,4 @@
-package br.com.ed.bingo;
+package br.com.edu.bingo.product;
 
 public class MetodosIterativos {
     //Questao 1

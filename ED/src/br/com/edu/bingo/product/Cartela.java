@@ -1,4 +1,6 @@
-package br.com.ed.bingo;
+package br.com.edu.bingo.product;
+
+import br.com.edu.bingo.interfaces.ICartelaJogo;
 
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
@@ -7,16 +9,24 @@ import java.util.Random;
 //Questao 4
 public class Cartela implements ICartelaJogo {
     private final Random rnd = new Random();
+
     //Referência para criar ids
     private static int id_cartela = 0;
 
     //Identificador único de cada cartela
     private final int identificador;
 
+    //Tipo do prêmio 0 (ouro), 1 (prata) e 2 (bronze)
+    int numeroDoPremio = 0;
+
     //Data de criação: String
     private String dataDeGeracao;
 
-    private int[][] cartela;
+    public int[][] cartela;
+
+    int[][] cartelaOriginal;
+
+    boolean vencedor = false;
 
     //Construtor de Cartela, incrementando identificador a cada cartela criada
     public Cartela(int m, int n) {
@@ -24,6 +34,7 @@ public class Cartela implements ICartelaJogo {
         id_cartela++;
         dataDeGeracao = new SimpleDateFormat("dd/MM/yyyy").format(Calendar.getInstance().getTime());
         cartela = gerarCartela(m, n);
+        cartelaOriginal = cartela.clone();
     }
 
     //gera 1 cartela de matriz m x n
@@ -90,10 +101,11 @@ public class Cartela implements ICartelaJogo {
 
     //exibe todas as cartelas a partir de um array de objetos
     public static void mostrarCartelas(Cartela[] arr) {
-        if(arr == null){
+        if (arr == null) {
             System.out.println("O bingo não existe.");
             return;
         }
+
         for (Cartela i : arr) {
             if (i != null)
                 mostrarCatela(i);
@@ -102,7 +114,7 @@ public class Cartela implements ICartelaJogo {
 
     public static void mostrarCatela(Cartela arr) {
         System.out.println(arr.getIdentificador() + 1 + "ª" + "\t| Data de Criação: " + arr.getDataDeGeracao());
-        verMatriz(arr.cartela);
+        verMatriz(arr.cartelaOriginal);
     }
 
     public static void verMatriz(int[][] arr) {
@@ -126,33 +138,46 @@ public class Cartela implements ICartelaJogo {
         return new Cartela(n, m);
     }
 
+    //Marca um 0 na casa sorteada da Cartela
     public void marcarNumeroSorteado(int N) {
-        int[][] arr = new int[0][0];
-
-        for (int i = 0; i < arr.length; i++) {
-            for (int k = 0; k < arr[0].length; k++) {
-                if (arr[i][k] == N) {
-                    arr[i][k] = 0;
+        for (int i = 0; i < cartela.length; i++) {
+            for (int k = 0; k < cartela[0].length; k++) {
+                if (cartela[i][k] == N) {
+                    cartela[i][k] = 0;
                 }
             }
         }
     }
 
     public boolean ehCartelaVencedora(boolean verificarPorLinha) {
-        int[][] arr = new int[0][0];
+        int count = 0;
+        if (verificarPorLinha) {
+            for (int coluna = 0; coluna < cartela[0].length; coluna++) {
+                count = 0;
+                for (int linha = 0; linha < cartela.length; linha++) {
 
-        int contador = 0;
-        for (int i = 0; i < arr.length; i++) {
-            for (int k = 0; k < arr[0].length; k++) {
-                if (arr[i][k] == 0) {
-                    contador++;
+                    if (cartela[linha][coluna] == 0) {
+                        count++;
+                    }
+                    if (count == 5) {
+
+                        return true;
+                    }
+                }
+            }
+        } else {
+            for (int linha = 0; linha < cartela.length; linha++) {
+                count = 0;
+                for (int coluna = 0; coluna < cartela[0].length; coluna++) {
+                    if (cartela[coluna][linha] == 0) {
+                        count++;
+                    }
+                    if (count == 5) {
+                        return true;
+                    }
                 }
             }
         }
-        if (contador == arr.length * arr[0].length) {
-            return true;
-        }
-
         return false;
     }
 
@@ -167,6 +192,7 @@ public class Cartela implements ICartelaJogo {
     public static void setId_cartela(int id_cartela) {
         Cartela.id_cartela = id_cartela;
     }
+
 
     //retorna true se a cartela possuir números iguais (em desuso)
     private boolean validarTabela(int[][] arrCartela) {
