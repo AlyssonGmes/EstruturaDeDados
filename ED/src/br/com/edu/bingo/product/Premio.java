@@ -54,6 +54,11 @@ public class Premio {
 
             if (contadorDezenas % 5 == 0) {
                 buscarGanhadores(conjuntoBingo, linhas, colunas, true);
+                System.out.print("Parar sorteio? (s/n) ");
+                if(new Scanner(System.in).next().charAt(0)=='s'){
+                    System.out.println();
+                    break;
+                }
             }
         }
         while (contadorGanhadores < 3);
@@ -73,6 +78,7 @@ public class Premio {
             for (Cartela jogador : conjuntoBingo) {
                 if (jogador != null && jogador.vencedor == false) {
                     if (jogador.ehCartelaVencedora(verificarPorLinha)) {
+                        System.out.println("Bingo! "+(jogador.getIdentificador()+1)+ "\n");
                         jogador.numeroDoPremio = numeroDoPremio;
                         inserirGanhador(jogador);
                         conjuntoBingo[jogador.getIdentificador()].vencedor = true;
@@ -97,10 +103,11 @@ public class Premio {
                     System.out.println("Vencedor Prêmio Bronze");
                     Cartela.mostrarCatela(ganhador);
                 }
-            } else {
-                System.out.println("Apenas " + contadorDezenas + " foram sorteadas. Faltam ganhadores.");
-
             }
+        }
+
+        if(numeroDoPremio < 3){
+            System.out.println("Apenas " + contadorDezenas + " foram sorteadas. Faltam ganhadores.");
         }
     }
 

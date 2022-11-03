@@ -1,37 +1,23 @@
 package br.com.edu.bingo;
 
-import br.com.edu.bingo.product.Bingo;
-import br.com.edu.bingo.product.Cartela;
-import br.com.edu.bingo.product.Premio;
-
 import java.util.Scanner;
 
 public class Main {
     public static void main(String[] args) {
+        Scanner rnd = new Scanner(System.in);
+        ModuloGerenciador mg = new ModuloGerenciador();
+        int opcao;
 
-        Bingo b1 = new Bingo();
-        b1.criarPremio(500, "Primeiro lugar", "Primeiro jogador a preencher a cartela.");
-        b1.criarPremio(250, "Segundo lugar", "Segundo jogador a preencher a cartela.");
-        b1.criarPremio(100, "Terceiro lugar", "Terceiro jogador a preencher a cartela.");
+        do {
+            System.out.println("1 - Novo Bingo ");
+            System.out.println("2 - Mostrar todas as cartelas");
+            System.out.println("3 - Sortear dezena");
+            System.out.println("4 - Ver ganhadores");
+            System.out.println("5 - Ver dezenas sorteadas");
+            System.out.println("6 - Sair");
+            opcao = rnd.nextInt();
+            mg.menu(opcao);
+        } while (opcao != 6);
 
-        b1.gerarBingo(50, 5, 5);
-        // Cartela.mostrarCartelas(b1.conjuntoBingo);
-        //b1.verPremios();
-        Cartela.mostrarCartelas(b1.conjuntoBingo);
-
-        Premio.sortearNumeros(b1.conjuntoBingo, 5, 5);
-        Premio.sortearNumeros(b1.conjuntoBingo, 5, 5);
-        Premio.sortearNumeros(b1.conjuntoBingo, 5, 5);
-        Premio.sortearNumeros(b1.conjuntoBingo, 5, 5);
-        Premio.sortearNumeros(b1.conjuntoBingo, 5, 5);
-        Premio.sortearNumeros(b1.conjuntoBingo, 5, 5);
-        Premio.sortearNumeros(b1.conjuntoBingo, 5, 5);
-        Premio.sortearNumeros(b1.conjuntoBingo, 5, 5);
-        Premio.sortearNumeros(b1.conjuntoBingo, 5, 5);
-        Premio.sortearNumeros(b1.conjuntoBingo, 5, 5);
-        Premio.sortearNumeros(b1.conjuntoBingo, 5, 5);
-        Premio.sortearNumeros(b1.conjuntoBingo, 5, 5);
-
-        Premio.verGanhadores(b1.conjuntoBingo);
     }
 }

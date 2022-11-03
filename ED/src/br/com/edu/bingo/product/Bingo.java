@@ -77,6 +77,46 @@ public class Bingo {
         }
     }
 
+    public Cartela[] getConjuntoBingo() {
+        return conjuntoBingo;
+    }
+
+    public void setConjuntoBingo(Cartela[] conjuntoBingo) {
+        this.conjuntoBingo = conjuntoBingo;
+    }
+
+    public Premio[] getPremios() {
+        return premios;
+    }
+
+    public void setPremios(Premio[] premios) {
+        this.premios = premios;
+    }
+
+    public static int getContPremio() {
+        return contPremio;
+    }
+
+    public static void setContPremio(int contPremio) {
+        Bingo.contPremio = contPremio;
+    }
+
+    public static int getPos() {
+        return pos;
+    }
+
+    public static void setPos(int pos) {
+        Bingo.pos = pos;
+    }
+
+    public static int[] getDezenas() {
+        return dezenas;
+    }
+
+    public static void setDezenas(int[] dezenas) {
+        Bingo.dezenas = dezenas;
+    }
+
     //Zera todos os atributos de classe (static)
     public void zerarBingo() {
         conjuntoBingo = null;

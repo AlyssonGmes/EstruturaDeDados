@@ -24,7 +24,7 @@ public class Cartela implements ICartelaJogo {
 
     public int[][] cartela;
 
-    int[][] cartelaOriginal;
+    int[][] cartelaOriginal = new int[5][5];
 
     boolean vencedor = false;
 
@@ -34,7 +34,7 @@ public class Cartela implements ICartelaJogo {
         id_cartela++;
         dataDeGeracao = new SimpleDateFormat("dd/MM/yyyy").format(Calendar.getInstance().getTime());
         cartela = gerarCartela(m, n);
-        cartelaOriginal = cartela.clone();
+        cartelaOriginal = transferir(cartela);
     }
 
     //gera 1 cartela de matriz m x n
@@ -193,6 +193,15 @@ public class Cartela implements ICartelaJogo {
         Cartela.id_cartela = id_cartela;
     }
 
+    public static int[][] transferir(int[][] arr) {
+        int[][] novaCartela = new int[arr.length][arr[0].length];
+        for (int i = 0; i < arr.length; i++) {
+            for (int k = 0; k < arr[0].length; k++) {
+                novaCartela[i][k] = arr[i][k];
+            }
+        }
+        return novaCartela;
+    }
 
     //retorna true se a cartela possuir números iguais (em desuso)
     private boolean validarTabela(int[][] arrCartela) {

@@ -3,10 +3,13 @@ package br.com.edu.ordenacao;
 public class Main {
 
     public static void main(String[] args) {
-        int vetor[] = new int[]{0, 7, 1, 5, 4, 3, 2, 9, 1, 2, 3, 10, 11, 8, 6};
+        int vetor[] = new int[]{3, 0, 1, 8, 7, 2, 5, 4, 9, 6};
 
-        MetodosIterativos.setVelocidadePrint(200);
-        MetodosIterativos.insertionSort(vetor);
+        QuickSort.ordena(vetor, 0, vetor.length - 1);
+
+        for (int i : vetor) {
+            System.out.print(i + " ");
+        }
 
     }
 }

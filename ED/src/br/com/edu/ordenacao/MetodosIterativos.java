@@ -1,7 +1,11 @@
 package br.com.edu.ordenacao;
 
+import jdk.swing.interop.SwingInterOpUtils;
+
 import java.util.Arrays;
 import java.util.HashSet;
+import java.util.Random;
+import java.util.Scanner;
 
 public class MetodosIterativos {
     static int velocidade = 450;
@@ -26,33 +30,59 @@ public class MetodosIterativos {
         return vetor;
     }
 
-    public int[] mergeSort(int[] vetor, int[] vetorL, int[] vetorR) {
+    public static int[] mergeSort(int[] vetor) {
 
-        if (vetorL == vetorR) {
+        int metadeTamanho = vetor.length / 2;
+        int[] vetorEsquerdo = new int[metadeTamanho];
+        int[] vetorDireito = new int[vetor.length - metadeTamanho];
+
+        if (vetor.length < 2) {
             return vetor;
-        } else {
-            for (int i = 0; i < vetor.length; i++) {
-                if (i < vetor.length / 2) {
-                    vetorL[i] = vetor[i];
-                } else {
-                    vetorR[i / 2] = vetor[i];
-                }
+        }
+
+        for (int i = 0; i < metadeTamanho; i++) {
+            vetorEsquerdo[i] = vetor[i];
+        }
+
+        for (int i = metadeTamanho; i < vetor.length; i++) {
+            vetorDireito[i - metadeTamanho] = vetor[i];
+        }
+
+        return merge(vetor, mergeSort(vetorEsquerdo), mergeSort(vetorDireito));
+    }
+
+    public static int[] merge(int[] vetor, int[] vetorL, int[] vetorR) {
+        int tamanhoL = vetorL.length;
+        int tamanhoR = vetorR.length;
+        int i = 0, j = 0, k = 0;
+
+        do {
+            if (vetorL[i] <= vetorR[j]) {
+                vetor[k] = vetorL[i];
+                i++;
+            } else {
+                vetor[k] = vetorR[j];
+                j++;
             }
-            mergeSort(vetor, vetorR, vetorL);
+            k++;
+        } while (i < tamanhoL && j < tamanhoR);
+
+        while (i < tamanhoL) {
+            vetor[k] = vetorL[i];
+            k++;
+            i++;
+        }
+        while (j < tamanhoR) {
+            vetor[k] = vetorR[j];
+            k++;
+            j++;
         }
 
         return vetor;
     }
 
-    public static int[] merge(int[] vetorL, int[] vetorR) {
-        int[] vetorMerged = new int[vetorL.length + vetorR.length];
-        for (int lSize = 0, rSize = 0; lSize + rSize < vetorMerged.length; ) {
+    //lomuto
 
-            
-        }
-
-        return vetorMerged;
-    }
 
     public static int[] insertionSort(int[] vetor) {
         for (int i = 0, aux = 0; i < vetor.length - 1; ) {
