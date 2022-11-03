@@ -1,13 +1,9 @@
 package br.com.edu.ordenacao;
 
-import jdk.swing.interop.SwingInterOpUtils;
-
 import java.util.Arrays;
 import java.util.HashSet;
-import java.util.Random;
-import java.util.Scanner;
 
-public class MetodosIterativos {
+public class SortingAlgorithms {
     static int velocidade = 450;
 
     public static int[] selectionSort(int[] vetor) {
@@ -83,6 +79,56 @@ public class MetodosIterativos {
 
     //lomuto
 
+    public static int[] quickSort(int[] vetor, int esquerda, int direita) {
+        ordena(vetor, 0, vetor.length - 1);
+        return vetor;
+    }
+
+    public static void ordena(int[] vetor, int esquerda, int direita) {
+        int pivo = 0;
+
+        if (esquerda < direita) {
+            pivo = buscaPivo(vetor, esquerda, direita);
+            ordena(vetor, esquerda, pivo);
+
+            ordena(vetor, pivo + 1, direita);
+        }
+    }
+
+    public static int buscaPivo(int[] vetor, int esquerda, int pivo) {
+
+        int temp;
+
+        boolean trocaContexto = true;
+
+        do {
+            if (trocaContexto) {
+                if (vetor[esquerda] > vetor[pivo]) {
+                    temp = vetor[esquerda];
+                    vetor[esquerda] = vetor[pivo];
+                    vetor[pivo] = temp;
+                    esquerda++;
+                    trocaContexto = false;
+                } else {
+                    pivo--;
+                }
+            } else {
+                if (vetor[pivo] < vetor[esquerda]) {
+                    temp = vetor[esquerda];
+                    vetor[esquerda] = vetor[pivo];
+                    vetor[pivo] = temp;
+                    pivo--;
+                    trocaContexto = true;
+                } else {
+                    esquerda++;
+                }
+            }
+            organizarPrint(vetor, pivo);
+        }
+
+        while (esquerda != pivo);
+        return pivo;
+    }
 
     public static int[] insertionSort(int[] vetor) {
         for (int i = 0, aux = 0; i < vetor.length - 1; ) {
@@ -172,6 +218,6 @@ public class MetodosIterativos {
     }
 
     public static void setVelocidadePrint(int velocidade) {
-        MetodosIterativos.velocidade = velocidade;
+        SortingAlgorithms.velocidade = velocidade;
     }
 }
