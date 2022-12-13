@@ -1,3 +1,5 @@
+package ifs.ed1.ordenacao;
+
 import java.util.Arrays;
 import java.util.HashSet;
 
