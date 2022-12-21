@@ -1,16 +1,29 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="f16f4ef6-e03f-4af7-9fac-29a02a2cccad" name="Changes" comment="">
+    <list default="true" id="3dba27b7-eefa-40e7-8f6e-445641729809" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ED.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/ED/Main.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/ifs/ed1/Main.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/ifs/ed1/lista/Lista.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/ifs/ed1/lista/ListaEnc.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/ifs/ed1/lista/ListaEncOrdenada.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/ifs/ed1/lista/ListaEncOrdenadaInteiro.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/ifs/ed1/lista/ListaSequencial.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/ifs/ed1/lista/No.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/ifs/ed1/lista/Pilha.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/ifs/ed1/ordenacao/Algoritmos.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ED/.idea/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ED/.idea/misc.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ED/.idea/modules.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ED/.idea/vcs.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/ED/ED.iml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ED/src/ifs/ed1/bingo/Bingo.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ED/src/ifs/ed1/bingo/Cartela.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ED/src/ifs/ed1/bingo/GerenciarBingo.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ED/src/ifs/ed1/bingo/ICartelaJogo.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ED/src/ifs/ed1/bingo/Main.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ED/src/ifs/ed1/bingo/NumeroCartela.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ED/src/ifs/ed1/bingo/SituacaoCartela.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ED/src/ifs/ed1/lista/Fila.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ED/out/production/ED/Main.class" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/ED/src/ifs/ed1/lista/Lista.java" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/ED/src/ifs/ed1/lista/ListaEnc.java" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/ED/src/ifs/ed1/lista/ListaEncOrdenada.java" beforeDir="false" />
@@ -19,11 +32,19 @@
       <change beforePath="$PROJECT_DIR$/ED/src/ifs/ed1/lista/No.java" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/ED/src/ifs/ed1/lista/Pilha.java" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/ED/src/ifs/ed1/ordenacao/Algoritmos.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Class" />
+      </list>
+    </option>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -31,26 +52,63 @@
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
   </component>
-  <component name="ProjectId" id="2JEUxLDrfIu39fr8DsIjAjjwF5j" />
+  <component name="ProjectId" id="2JEVy6kKDKZNGvEL2pK8KDhlQi9" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/alyss/Documents/IFS/4º período/Estrutura de Dados 1/EstruturaDeDados&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "ASKED_ADD_EXTERNAL_FILES": "true",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "last_opened_file_path": "C:/Users/alyss/Documents/IFS/4º período/Estrutura de Dados 1/EstruturaDeDados"
   }
-}</component>
+}]]></component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\alyss\Documents\IFS\4º período\Estrutura de Dados 1\EstruturaDeDados\ED\src" />
+    </key>
+  </component>
+  <component name="RunManager" selected="Application.ifs.ed1.Main">
+    <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="Main" />
+      <module name="ED" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="ifs.ed1.Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="ifs.ed1.Main" />
+      <module name="ED" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="ifs.ed1.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Application.ifs.ed1.Main" />
+        <item itemvalue="Application.Main" />
+      </list>
+    </recent_temporary>
+  </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="f16f4ef6-e03f-4af7-9fac-29a02a2cccad" name="Changes" comment="" />
-      <created>1671642981387</created>
+      <changelist id="3dba27b7-eefa-40e7-8f6e-445641729809" name="Changes" comment="" />
+      <created>1671643482370</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
-      <updated>1671642981387</updated>
+      <updated>1671643482370</updated>
     </task>
     <servers />
   </component>
@@ -64,5 +122,8 @@
         </entry>
       </map>
     </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
   </component>
 </project>
